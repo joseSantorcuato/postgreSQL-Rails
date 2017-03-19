@@ -44,7 +44,7 @@ bundle install
 
 #Ahora crearemos una ficha para nuestros profesores
 
-rails generate scaffold Profesores nombre:string disciplina:text  titulo:string fecha_nac:datetime 
+rails generate scaffold Profesores nombre:string disciplina:text  titulo:string fecha_nac:date
 
 :binary
 :boolean
@@ -58,6 +58,12 @@ rails generate scaffold Profesores nombre:string disciplina:text  titulo:string 
 :text
 :time
 :timestamp
+
+#Si quieres editar el rango de fechas te recomiendo editar el _form.html.erb y agregar
+
+    <%= f.date_select :fecha_nac, :start_year=>1900  %>
+
+
 
 rake db:create
 
