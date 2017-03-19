@@ -1,0 +1,61 @@
+
+rails new profesores --database=postgresql
+
+//rails new profesores -d postgresql
+
+#Estamos creando un proyecto que usará postgresql como base de datos
+
+#Editaremos el archivo Gemfile para agregar Bootstrap
+
+gem 'bootstrap-sass', '~> 3.x.0'
+gem 'autoprefixer-rails'
+
+#En el mismo archivo agregar al final versión de ruby a utilizar
+
+ruby "2.4.0"
+
+Ahora en el archivo en mi database.yml
+
+
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  # For details on connection pooling, see rails configuration guide
+  # http://guides.rubyonrails.org/configuring.html#database-pooling
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  host: localhost
+  username: miusuariopg
+  password: miclavepg
+
+#Si queremos trabajar con fonts debemos crear la carpeta fonts en app/assets/fonts
+
+#Para disponiblizar los assets en apllication.erb agregamos esta línea
+
+config.assets.paths << Rails.root.join('app', 'assets', 'fonts')
+
+
+#Cambiar en enviroments/production.rb
+
+config.assets.compile = true
+
+#Corremos el comando 
+
+bundle install
+
+#Ahora crearemos una ficha para nuestros profesores
+
+rails generate scaffold Profesores nombre:string disciplina:text  titulo:string fecha_nac:datetime 
+
+rake db:create
+
+rake db:migrate
+
+rake assets:precompile
+
+rails server
+
+
+
+
+
+

@@ -1,0 +1,52 @@
+COMANDO BÁSICOS POSTGRESQL
+JOSÉ SANTORCUATO
+santorcuato76@gmail.com
+Chile 2017
+
+Para muchos que venimos de SQL y MySql este pequeño tutorial servirá para la migración a postgreSQL
+La base de datos fue creada en Rails, por eso agrega automáticamente los created_at y updated_at
+Trabajaremos con una base de datos con estos campos:
+
+
+
+ id |      nombre      | disciplina |        titulo        |      fecha_nac      |         created_at         |         updated_at         
+----+------------------+------------+----------------------+---------------------+----------------------------+----------------------------
+  2 | Mario Soto    | Diseño     | Comunicador digital | 2017-03-19 15:38:00 | 2017-03-19 15:38:54.561004 | 2017-03-19 15:38:54.561004
+  3 | Carlos Muñoz | Desarrollo | Ingeniero            | 2017-03-19 15:39:00 | 2017-03-19 15:39:21.284613 | 2017-03-19 15:39:21.284613
+
+
+
+sudo -u postgres createuser -s tuUsuario // pedirá contraseña
+
+sudo -u postgres psql  // para acceder a el servidor
+
+\l  //lista las base de datos 
+
+\c tuBase //comando que permite conectarse a la base de datos
+
+Backslash en ubuntu es altgr + ?, en OSX altgr + | (tecla inmediatamente a la izquierda del 1)
+
+Ejemplo:
+
+\c profesores_development
+
+\d profesores // este comando permite revisra campos de determinada tabla
+
+SELECT count(*) FROM profesores; // comando cuenta todos los campos ingresados den tabla profesores
+
+SELECT * FROM profesores; //comando para traer todos los datos de la tabla
+
+SELECT disciplina FROM profesores;
+
+SELECT* FROM profesores WHERE disciplina = 'Desarrollo';
+
+INSERT INTO profesores (nombre, disciplina, titulo, fecha_nac, created_at, updated_at)
+    VALUES ('Javiera Montes', 'Negocios', 'Contador', '1971-07-13 12:00:00', '2017-03-19 15:38:54.561004', '2017-03-19 15:38:54.561004');
+
+UPDATE profesores SET disciplina = 'Animador Digital' WHERE disciplina = 'Negocios';
+
+DELETE FROM profesores WHERE disciplina <> 'Negocios';
+
+Estos comando pueden incorporar los operadores lógicos && || OR AND 
+
+La base de datos fue creada en Rails, por eso agrega automáticamente los created_at y updated_at
