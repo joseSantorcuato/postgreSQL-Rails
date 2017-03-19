@@ -5,6 +5,9 @@ Chile 2017
 
 Para muchos que venimos de SQL y MySql este pequeño tutorial servirá para la migración a postgreSQL
 La base de datos fue creada en Rails, por eso agrega automáticamente los created_at y updated_at
+
+//rails new profesores -d postgresql --no-timestamps // apara evitar los created_at y updated_at
+
 Trabajaremos con una base de datos con estos campos:
 
 

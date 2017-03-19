@@ -1,7 +1,7 @@
 
 rails new profesores --database=postgresql
 
-//rails new profesores -d postgresql
+//rails new profesores -d postgresql --no-timestamps // apara evitar los created_at
 
 #Estamos creando un proyecto que usará postgresql como base de datos
 
